@@ -20,7 +20,9 @@ cloudinary.config({
 })
 
 try{
-  mongoose.connect(MONGO_URL, {})
+  mongoose.connect(MONGO_URL, {
+    useNewUrlParser: true
+  }).then(() => {}).catch(err => {console.error(err)})
 }
 catch(err){
   console.error(err)
