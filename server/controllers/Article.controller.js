@@ -21,7 +21,7 @@ addArticle = (req, res, next) => {
       if(err)
         res.send(err)
       else if(!article)
-        res.send(400)
+        res.sendStatus(400)
       else
         return article.addAuthor(req.body.author_id).then(artWithAuthor => res.send(artWithAuthor))
       next()
@@ -34,7 +34,7 @@ getAllArticles = (req, res, next) => {
     if(err)
       res.send(err)
     else if(!arts)
-      res.send(400)
+      res.sendStatus(400)
     else
       res.send(arts)
     next
@@ -66,7 +66,7 @@ getArticle = (req, res, next) => {
     if(err)
       res.send(err)
     else if(!art)
-      res.send(400)
+      res.sendStatus(404)
     else
       res.send(art)
     next
