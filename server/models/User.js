@@ -17,8 +17,8 @@ const UserSchema = new mongoose.Schema({
   }],
 })
 
-UserSchema.methods.addFollower = (fs) => {
-  this.followers.push(fs) 
+UserSchema.methods.addFollower = (follower) => {
+  this.followers.push(follower) 
 }
 
 module.exports = mongoose.model('User', UserSchema)
