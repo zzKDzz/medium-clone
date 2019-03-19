@@ -25,7 +25,7 @@ getUser = (req, res, next) => {
   }).catch(next)
 }
 
-followThisOne = (req, res, next) => {
+followUser = (req, res, next) => {
   User.findById(req.params.id).then(user => {
     user.addFollower(req.params.my_id).then(() => res.json({msg: 'Followed !'}))
   }).catch(next)
@@ -37,4 +37,11 @@ getUserProfile = (req, res, next) => {
       articles => res.json({user, articles})
     )
   ).catch(err => { console.error(err) })
+}
+
+module.exports = {
+  addUser,
+  getUser,
+  followUser,
+  getUserProfile
 }
