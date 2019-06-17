@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+
+import { Switch } from 'react-router'
+import { Route } from 'react-router-dom'
+
+
+import Header from './components/Header.js'
+import Feed from './components/Feed.js'
+import Profile from './components/Profile.js'
+import ArticleView from './components/ArticleView.js'
+import Editor from './components/Editor.js'
+import SignInWith from './components/SignInWith.js'
 
 class App extends Component {
   render() {
+    const pathname = window.location.pathname
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        { !pathname.includes('editor') ? <Header /> : ''}
+        <SignInWith />
+        <Switch>
+          <Route exact path="/" component={Feed}/>
+          <Route path="/profile/:id" component={Profile} />
+          <Route path="/articleview" component={ArticleView} />
+          <Route path="/editor" component={Editor}/>
+          <Route path="**" component={Feed} />
+        </Switch>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

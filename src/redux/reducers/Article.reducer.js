@@ -8,12 +8,12 @@ export default (state = initialState, action) => {
     case 'LOAD_ARTICLES':
       return {
         ...state,
-        action.articles
+        articles: action.articles
       }
     case 'VIEW_ARTICLE':
       return {
         ...state,
-        action.article
+        article: action.article
       }
     case 'CLAP_ARTICLE':
       let article = Object.assign({}, action.article)
