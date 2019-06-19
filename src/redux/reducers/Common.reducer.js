@@ -1,16 +1,20 @@
-const defaultState = {
-  appName: '',
-  modalMode: false
-}
+// const defaultState = {
+//   appName: '',
+//   modalMode: false
+// }
 
-export default (state = defaultState, action) => {
-  switch(action.type){
-    case 'TOGGLE_MODAL':
-      return {
-        ...state,
-        modalMode: action.modalMode
-      }
-    default:
-      return state 
-  }
+// export default (state = defaultState, action) => {
+//   switch(action.type){
+//     case 'TOGGLE_MODAL':
+//       return {
+//         ...state,
+//         modalMode: action.modalMode
+//       }
+//     default:
+//       return state 
+//   }
+// }
+
+export function doToggleModal(modalMode){
+  this.setState({ modalMode })
 }
