@@ -4,7 +4,7 @@ import { doToggleModal } from '../reducers/Common.reducer';
 import { doClap, doLoadAll, doViewOne } from '../reducers/Article.reducer';
 import { doSetUser, doSetProfile, doFollowUser } from '../reducers/User.reducer';
 
-const url = process.env.NODE_ENV == 'production' ? '/api/' : 'http://localhost:5000/api/'
+const url = process.env.NODE_ENV === 'production' ? '/api/' : 'http://localhost:5000/api/'
 
 export function loadArticles(){
   return dispatch => {
