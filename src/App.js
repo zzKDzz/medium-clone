@@ -45,7 +45,7 @@ class App extends Component {
 
   render() {
     const pathname = window.location.pathname
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <AppContext.Provider value={this.state}>
         <div className="App">

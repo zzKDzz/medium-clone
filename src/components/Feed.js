@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { loadArticles } from '../redux/actions/actions'
+// import { loadArticles } from '../redux/actions/actions'
 import { AppContext } from '../App'
 import AsideFeed from './AsideFeed'
 
@@ -10,7 +10,8 @@ class Feed extends Component{
   }
 
   render() {
-    // console.log(this.context)
+    console.log(this.context)
+    //try this.context.articles.reverse()
     const articles = this.context.state.articles.reverse().map(article => (
       <div className="post-panel">
         <div className="post-metadata">

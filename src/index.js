@@ -8,8 +8,6 @@ import {Route} from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
 
 
-// console.log(reducer)
-
 ReactDOM.render(
     <BrowserRouter>
       <Route path="/" component={App}/>
