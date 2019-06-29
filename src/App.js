@@ -50,12 +50,12 @@ class App extends Component {
       <AppContext.Provider value={this.state}>
         <div className="App">
           { !pathname.includes('editor') ? <Header /> : ''}
-          <SignInWith />
+          
           <Switch>
             <Route exact path="/" component={Feed}/>
             <Route path="/profile/:id" component={Profile} />
             <Route path="/articleview" component={ArticleView} />
-            <Route path="/editor" component={reqAuth(Editor)}/>
+            <Route path="/editor" component={Editor}/>
             <Route path="**" component={Feed} />
           </Switch>
         </div>

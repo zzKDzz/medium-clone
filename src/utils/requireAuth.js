@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import AppContext from './context.js'
+import { AppContext } from '../App'
+
 
 
 // console.log(AppContext)

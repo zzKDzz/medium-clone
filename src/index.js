@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker'
 
 import {Route} from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
-
+console.log(App)
 
 ReactDOM.render(
     <BrowserRouter>
