@@ -7,18 +7,15 @@ import AsideFeed from './AsideFeed'
 console.log(AppContext)
 
 class Feed extends Component{
-
+  
   componentWillMount(){
     // this.context.loadArticles()
   }
   componentDidMount(){
-    console.log(this.context)
   }
 
-  render() {
-    console.log(this.context)
-    //try this.context.articles.reverse()
-    const articles = this.context.articles.reverse().map(article => (
+  renderArticles(articles){
+    return articles.reverse().map(article => (
       <div className="post-panel">
         <div className="post-metadata">
           <img alt="" className="avatar-image" src={article.author.provider_pic} height="40" width="40"/>
@@ -66,24 +63,28 @@ class Feed extends Component{
         </div>
       </div>
     ))
-    
+  }
+
+  render() {
     return (
-      <AppContext.Consumer>
-        <div>
-          <div className="container-fluid main-container">
-            <div className="col-md-6 col-md-offset-1 dashboard-main-content">
-              <div className="posts-wrapper animated fadeInUp" data-behavior="endless-scroll" data-animation="fadeInUp-fadeOutDown">
-                {articles}
+      <div>
+        <AppContext.Consumer>
+          {value => 
+            <div className="container-fluid main-container">
+              <div className="col-md-6 col-md-offset-1 dashboard-main-content">
+                <div className="posts-wrapper animated fadeInUp" data-behavior="endless-scroll" data-animation="fadeInUp-fadeOutDown">
+                  {this.renderArticles(value.articles)}
+                </div>
               </div>
+              {value.articles ? <AsideFeed _articles={value.articles} /> : ''}
             </div>
-            {this.context.state.articles ? <AsideFeed _articles={this.context.state.articles} /> : ''}
-          </div>
-        </div>
-      </AppContext.Consumer>
+          }
+        </AppContext.Consumer>
+      </div>
     )
   }
 }
 
-Feed.contextType = AppContext
+// Feed.contextType = AppContext
 
 export default Feed

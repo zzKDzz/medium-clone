@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 
 import { Switch } from 'react-router'
-import { Route } from 'react-router-dom'
+import { Route, BrowserRouter } from 'react-router-dom'
 
 import Header from './components/Header.js'
 import Feed from './components/Feed.js'
@@ -47,19 +47,21 @@ class App extends Component {
     const pathname = window.location.pathname
     // console.log(this.state)
     return (
-      <AppContext.Provider value={this.state}>
-        <div className="App">
-          { !pathname.includes('editor') ? <Header /> : ''}
-          
-          <Switch>
-            <Route exact path="/" component={Feed}/>
-            <Route path="/profile/:id" component={Profile} />
-            <Route path="/articleview" component={ArticleView} />
-            <Route path="/editor" component={Editor}/>
-            <Route path="**" component={Feed} />
-          </Switch>
-        </div>
-      </AppContext.Provider>
+      <BrowserRouter>
+        <AppContext.Provider value={this.state}>
+          <div className="App">
+            { !pathname.includes('editor') ? <Header /> : ''}
+            
+            <Switch>
+              <Route exact path="/" component={Feed}/>
+              <Route path="/profile/:id" component={Profile} />
+              <Route path="/articleview" component={ArticleView} />
+              <Route path="/editor" component={Editor}/>
+              <Route path="**" component={Feed} />
+            </Switch>
+          </div>
+        </AppContext.Provider>
+      </BrowserRouter>
     )
   }
 }
